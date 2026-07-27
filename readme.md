@@ -1,5 +1,5 @@
 # Final Project
-
+# This project demonstrates core Python data analysis concepts using Detroit Lions offensive statistics. A dictionary is used to store player data, which is converted into pandas DataFrames. The program combines the DataFrames, analyzes player yards, calculates the average number of yards, identifies above-average performers, checks for missing values, and reports the number of unique players.
 
 import pandas as pd
 
@@ -69,3 +69,64 @@ print(“Values:”) print(all_stats.isna().sum())
 print(“Players:”) print(all_stats\[“Player”\].nunique())
 
 lions = pd.read_csv(“detroit_lions_stats.csv”)
+
+#a bar chart of player yards
+all_stats.plot(
+    kind="bar",
+    x="Player",
+    y="Yards",
+    legend=False,
+    title="Detroit Lions Offensive Leaders by Total Yards",
+    figsize=(8,5)
+)
+
+plt.xlabel("Player")
+plt.ylabel("Total Yards")
+plt.xticks(rotation=0)
+plt.tight_layout()
+plt.show()
+
+all_stats.plot(
+    kind="bar",
+    x="Player",
+    y="Touchdowns",
+    legend=False,
+    title="Detroit Lions Offensive Leaders by Touchdowns",
+    figsize=(8,5)
+)
+
+plt.xlabel("Player")
+plt.ylabel("Touchdowns")
+plt.xticks(rotation=0)
+plt.tight_layout()
+plt.show()
+
+## Detroit Lions Offensive Leaders by Total Yards
+5000 ┤
+4500 ┤ █
+4000 ┤ █
+3500 ┤ █
+3000 ┤ █
+2500 ┤ █
+2000 ┤ █
+1500 ┤ █        █
+1000 ┤ █        █        █
+ 500 ┤ █        █        █
+   0 ┼────────────────────────────────────────
+      Jared     Jahmyr    Amon-Ra
+      Goff      Gibbs     St. Brown
+
+## Detroit Lions Offensive Leaders by Total Yards
+
+5000 ┤
+4500 ┤ ███████████████████████████████████ Jared Goff
+4000 ┤
+3500 ┤
+3000 ┤
+2500 ┤
+2000 ┤
+1500 ┤                 ████████████ Amon-Ra St. Brown
+1000 ┤        ██████████ Jahmyr Gibbs
+ 500 ┤
+   0 ┼──────────────────────────────────────────────
+        Jared Goff   Jahmyr Gibbs   Amon-Ra St. Brown
